@@ -30,4 +30,5 @@ final class Patient_ChartUITestsLaunchTests: XCTestCase {
         attachment.lifetime = .keepAlways
         add(attachment)
     }
+    
 }
