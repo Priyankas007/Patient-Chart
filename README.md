@@ -16,8 +16,21 @@ A Swift project designed to manage patient data, including medications, personal
   - `BloodType`: Enum representing all possible blood types.
 - **Unit Tests**:
   - Validate the functionality of filtering, sorting, and preventing duplicate medications.
+ 
+## **Available Methods**
+### **Patient**
+- `fullNameAndAge() -> String`: Returns the patient's full name and age in the format `"Last Name, First Name (Age in years)"`.
+- `medicationList() -> [Medication]`: Returns a list of medications the patient is currently taking, sorted by date prescribed (newest first), excluding completed medications.
+- `prescribeMedication(_ medication: Medication) throws`: Adds a new medication to the patient's list if it doesn't already exist. Throws `DuplicateMedicationError` if a duplicate medication is found.
+
+### **Medication**
+- `isCompleted: Bool`: A computed property that returns `true` if the medication has been completed (based on `datePrescribed` and `duration`), otherwise `false`.
+
+### **BloodType**
+- `compatibleDonors(for: BloodType) -> [BloodType]`: A static method that returns the list of compatible donor blood types for a given blood type.
+
 
 ## **Getting Started**
 1. **Clone the repository**:
    ```bash
-   git clone <repository-url>
+   git clone <https://github.com/Priyankas007/Patient-Chart.git>
