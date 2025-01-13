@@ -54,4 +54,17 @@ struct Patient {
         guard let type = bloodType else { return [] }
         return BloodType.possibleDonors(for: type)
     }
+    
+    // BONUS FUNCTIONS
+    mutating func removeCompletedMedications() {
+        medications.removeAll { $0.isCompleted }
+    }
+    
+    func nextPrescriptionDate() -> Date? {
+        let activeMedications = medications.filter { !$0.isCompleted }
+        let dates = activeMedications.compactMap { medication in
+            Calendar.current.date(byAdding: .day, value: medication.duration, to: medication.datePrescribed)
+        }
+        return dates.min()
+    }
 }

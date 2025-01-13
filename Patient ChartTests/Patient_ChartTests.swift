@@ -104,5 +104,27 @@ final class Patient_ChartTests: XCTestCase {
         )
         XCTAssertEqual(new_patient.fullNameAndAge(), "Doe, Jane (20 years)")
     }
+    
+    // BONUS FUNCTION TEST CASES
+    func testRemoveCompletedMedications() throws {
+        // Ensure the patient starts with 3 medications
+        XCTAssertEqual(patient.medications.count, 3, "Initial medication count should be 3.")
+        
+        // Remove completed medications
+        patient.removeCompletedMedications()
+        
+        // Validate that only active medications remain
+        XCTAssertEqual(patient.medications.count, 2, "After removing completed medications, there should be 2 active medications.")
+        XCTAssertFalse(patient.medications.contains(where: { $0.isCompleted }), "No completed medications should remain.")
+    }
+    
+    func testNextPrescriptionDate() throws {
+        // Calculate the next prescription date
+        let nextDate = patient.nextPrescriptionDate()
+        
+        // The next prescription date should match the end date of the earliest active medication
+        let expectedDate = Calendar.current.date(byAdding: .day, value: medication1.duration, to: medication1.datePrescribed)
+        XCTAssertEqual(nextDate, expectedDate, "The next prescription date is incorrect.")
+    }
 
 }
