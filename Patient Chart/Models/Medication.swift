@@ -7,7 +7,7 @@
 
 import Foundation
 
-struct Medication {
+struct Medication : Equatable {
     let datePrescribed: Date
     let name: String
     var dose: String

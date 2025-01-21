@@ -7,13 +7,14 @@
 
 import Foundation
 
-struct Patient {
-    let medicalRecordNumber: UUID // let makes the property a constant
+struct Patient : Identifiable {
+    let medicalRecordNumber: UUID // Acts as the unique identifier
+    var id: UUID { medicalRecordNumber } // Conforms to `Identifiable`
     var firstName: String
     var lastName: String
     var dateOfBirth: Date
-    var height: Double
-    var weight: Double
+    var height: Double // in cm
+    var weight: Double // in lbs
     var bloodType: BloodType? // ? indicates optional
     var medications: [Medication]
     
@@ -31,9 +32,14 @@ struct Patient {
     
     // Returns a patients last name, first name, and age
     func fullNameAndAge() -> String {
+        "\(lastName), \(firstName) (\(calculateAge()))"
+    }
+    
+    // Returns a patient's age
+    func calculateAge() -> String {
         let ageComponents = Calendar.current.dateComponents([.year], from: dateOfBirth, to: Date())
         let age = ageComponents.year ?? -1
-        return "\(lastName), \(firstName) (\(age) years)"
+        return "\(age)"
     }
     
     // Returns a list of current medications (not expired) for the patient in order of when they were first prescribed
