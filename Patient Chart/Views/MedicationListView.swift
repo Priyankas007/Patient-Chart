@@ -17,6 +17,7 @@ struct MedicationListView: View {
                 MedicationRow(medication: $medications[index])
             }
         }
+        .accessibilityLabel("Medication List View")
     }
 }
 #Preview {

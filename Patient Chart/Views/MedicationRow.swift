@@ -7,6 +7,7 @@
 
 import SwiftUI
 
+// View to display medication information
 struct MedicationRow: View {
     @Binding var medication: Medication
     
@@ -22,8 +23,10 @@ struct MedicationRow: View {
                 .font(.subheadline)
         }
         .accessibilityLabel("Medication \(medication.name), dose \(medication.dose) mg, route \(medication.route), frequency \(medication.frequency) times per day, duration \(medication.duration) days.")
+        .accessibilityIdentifier("medication_\(medication.name)")
     }
     
+    // function to show many days are remaining for a patient to be on a medication
     func daysRemaining(from datePrescribed: Date, duration: Int) -> Int {
         let calendar = Calendar.current
         if let endDate = calendar.date(byAdding: .day, value: duration, to: datePrescribed) {

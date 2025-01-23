@@ -25,6 +25,7 @@ struct PrescribeMedicationButton: View {
                 }
             }
             .accessibilityLabel("Prescribe a new medication for this patient")
+            .accessibilityIdentifier("prescribeMedicationButton")
         }
     }
 }

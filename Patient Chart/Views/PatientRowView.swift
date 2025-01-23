@@ -16,6 +16,7 @@ struct PatientRowView: View {
             Text(patient.fullNameAndAge())
                 .font(.headline)
                 .accessibilityLabel("\(patient.fullNameAndAge()), medical record number: \(patient.id.uuidString)")
+                .accessibilityIdentifier("patientName_\(patient.lastName)_\(patient.firstName)")
             Text("MRN: \(patient.medicalRecordNumber.uuidString)")
                 .font(.subheadline)
                 .accessibilityHidden(true)

@@ -32,7 +32,7 @@ struct Patient : Identifiable {
     
     // Returns a patients last name, first name, and age
     func fullNameAndAge() -> String {
-        "\(lastName), \(firstName) (\(calculateAge()))"
+        "\(lastName), \(firstName) (\(calculateAge()) years)"
     }
     
     // Returns a patient's age

@@ -73,7 +73,7 @@ struct PrescribeMedicationView: View {
                         }
                     }
                     .disabled(isSaveDisabled) // Ensure save button is disabled for invalid inputs
-                    .accessibilityIdentifier("SaveButton")
+                    .accessibilityIdentifier("SaveMedicationButton")
                     .accessibilityLabel("Save")
                     .accessibilityHint("Saves the prescribed medication")
                 }
@@ -82,7 +82,7 @@ struct PrescribeMedicationView: View {
                     Button("Cancel") {
                         dismiss()
                     }
-                    .accessibilityIdentifier("CancelButton")
+                    .accessibilityIdentifier("CancelMedicationButton")
                     .accessibilityLabel("Cancel")
                     .accessibilityHint("Dismisses the form without saving changes")
                 }

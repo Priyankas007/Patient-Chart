@@ -23,7 +23,7 @@ struct PatientDetailView: View {
                     MedicationListView(medications: $patient.medications)
                 }
                 
-                PrescribeMedicationButton(isShowingPrescribeMedicationView: $isShowingPrescribeMedicationView) 
+                PrescribeMedicationButton(isShowingPrescribeMedicationView: $isShowingPrescribeMedicationView)
             }
             .navigationTitle("Patient Details")
             .navigationBarTitleDisplayMode(.inline)

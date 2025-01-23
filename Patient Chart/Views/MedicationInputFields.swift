@@ -7,6 +7,7 @@
 
 import SwiftUI
 
+// View for input fields to prescribe new medication
 struct MedicationInputFields: View {
     @Binding var name: String
     @Binding var dose: String

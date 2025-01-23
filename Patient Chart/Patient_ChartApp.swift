@@ -11,7 +11,7 @@ import SwiftUI
 struct Patient_ChartApp: App {
     var body: some Scene {
         WindowGroup {
-            ContentView()
+            PatientListView()
         }
     }
 }
